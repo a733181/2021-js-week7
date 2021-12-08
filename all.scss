@@ -1,0 +1,337 @@
+// base
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap");
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: "Noto Sans", "sans-serif";
+}
+// mixins
+@mixin md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin col($num) {
+  max-width: 100% * ($num/$grid-num);
+  flex: 0 0 (100% * ($num/$grid-num));
+  padding: 0 $gutter-width/2;
+}
+// grid
+$gutter-width: 30px;
+$grid-num: 12;
+$grid-breakpoints: (
+  xs: 0,
+  md: 768px,
+  lg: 992px,
+);
+$container-max-widths: (
+  lg: 920px,
+  xl: 1140px,
+);
+@each $size, $px in $container-max-widths {
+  .container-#{$size} {
+    margin: 0 auto;
+    padding: 0 $gutter-width/2;
+    max-width: $px;
+  }
+}
+.row {
+  display: flex;
+  margin-left: -($gutter-width/2);
+  margin-right: -($gutter-width/2);
+  flex-wrap: wrap;
+  @include md {
+    justify-content: center;
+  }
+}
+@each $size, $px in $grid-breakpoints {
+  @if $size == xs {
+    @for $i from 1 through $grid-num {
+      .col-#{$i} {
+        @include col($i);
+      }
+    }
+  } @else {
+    @for $i from 1 through $grid-num {
+      .col-#{$size}-#{$i} {
+        @include col(12);
+      }
+    }
+    @media (min-width: $px) {
+      @for $i from 1 through $grid-num {
+        .col-#{$size}-#{$i} {
+          @include col($i);
+        }
+      }
+    }
+  }
+}
+// flex
+.flex {
+  display: flex;
+  &-jcc {
+    justify-content: center;
+  }
+  &-aic {
+    align-items: center;
+  }
+  &-ais {
+    align-items: start;
+  }
+  &-jce {
+    justify-content: flex-end;
+  }
+  &-jcb {
+    justify-content: space-between;
+  }
+  &-1 {
+    flex: 1;
+  }
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+//width and height
+.w {
+  &-50 {
+    width: 50%;
+  }
+  &-100 {
+    width: 100%;
+  }
+}
+.h {
+  &-1 {
+    height: 111px;
+  }
+}
+// color
+$primary: #00807e;
+$secondary: #64c3bf;
+$gary-light: #dee2e6;
+$gray-100: #fafafa;
+$gray-200: #ced4da;
+$gray-300: #818a91;
+$white: #fff;
+$red: red;
+$dark: #00000029;
+
+.c {
+  &-primary {
+    color: $primary;
+  }
+  &-bg-gray-100 {
+    background-color: $gray-100;
+  }
+  &-gray-300 {
+    color: $gray-300;
+  }
+  &-border-gary-200 {
+    border-color: $gray-200;
+  }
+}
+// font
+.fs-1 {
+  font-size: 24px;
+}
+.fw {
+  &-b {
+    font-weight: bold;
+  }
+  &-m {
+    font-weight: 500;
+  }
+}
+.whiteSpaceNowarp {
+  white-space: nowrap;
+}
+// border
+.border {
+  &-0 {
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+  }
+  &-b-1 {
+    border-bottom: 1px solid $primary;
+  }
+  &-b-3 {
+    border-bottom: 3px solid $primary;
+  }
+}
+// shadow
+.box-shadow {
+  box-shadow: 0px 3px 6px $dark;
+}
+//margin padding
+$spacer: 16px;
+$spacers: (
+  auto: auto,
+  0: 0,
+  1: $spacer * 0.25,
+  //4
+  2: $spacer * 0.5,
+  // 8
+  3: $spacer,
+  //16
+  4: $spacer * 1.5,
+  // 24
+  5: $spacer * 1.875,
+  // 30
+  6: $spacer * 2.25,
+  // 36
+  7: $spacer * 3.5,
+  // 56
+  8: $spacer * 6.25,
+  // 100
+  9: $spacer * 7.5,
+  // 120
+);
+$directions: (
+  t: top,
+  b: bottom,
+  s: left,
+  e: right,
+);
+@each $name, $rem in $spacers {
+  @each $directionName, $direction in $directions {
+    .m#{$directionName}-#{$name} {
+      margin-#{$direction}: $rem;
+    }
+    .p#{$directionName}-#{$name} {
+      padding-#{$direction}: $rem;
+    }
+  }
+  .mx-#{$name} {
+    margin-right: $rem;
+    margin-left: $rem;
+  }
+  .px-#{$name} {
+    padding-right: $rem;
+    padding-left: $rem;
+  }
+  .my-#{$name} {
+    margin-top: $rem;
+    margin-bottom: $rem;
+  }
+  .py-#{$name} {
+    padding-top: $rem;
+    padding-bottom: $rem;
+  }
+}
+
+// btn
+.btn {
+  color: $white;
+  background-color: $primary;
+  border: $primary;
+  border-radius: 4.8px;
+  font-size: 20px;
+  padding: 10px 40px;
+  &:hover {
+    opacity: 0.6;
+  }
+  &:active {
+    position: relative;
+    top: 5px;
+  }
+}
+// card
+.card {
+  margin-bottom: 38px;
+  display: flex;
+  flex-direction: column;
+
+  &-img {
+    position: relative;
+    border-radius: 4px 4px 0px 0px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  &-place {
+    position: absolute;
+    top: -20px;
+    background-color: $secondary;
+    color: $white;
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
+  &-star {
+    position: absolute;
+    bottom: -16px;
+    color: $white;
+    background-color: $primary;
+    padding: 5px 8px;
+  }
+  &-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $gary-light;
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px $dark;
+    padding: 20px 20px 14px 20px;
+  }
+  &-title {
+    font-size: 24px;
+    color: $primary;
+    border-bottom: 2px solid $primary;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  &-text {
+    color: $gray-300;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-Num {
+    color: $primary;
+    font-weight: 500;
+  }
+  &-price {
+    color: $primary;
+    display: flex;
+    align-items: center;
+  }
+  &-bprice {
+    margin-left: 4px;
+    font-size: 32px;
+  }
+}
+
+// 圓餅圖
+.dount {
+  margin-left: auto;
+  @include md {
+    margin-left: auto;
+    margin-right: auto;
+    margn-top: 8px;
+  }
+}
+.c3-chart-arcs-title {
+  font-size: 14px;
+}
+.c3-chart-arc text {
+  display: none;
+}

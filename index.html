@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新增旅遊套票</title>
+    <link rel="stylesheet" href="all.css" />
+  </head>
+  <body>
+    <div class="container-lg mt-9 mb-8">
+      <div class="row box-shadow flex-aic">
+        <div class="col-md-6 col-lg-6">
+          <img
+            src="https://i.imgur.com/iRssPpJ.png"
+            alt="let's travel"
+            class="mx-auto"
+          />
+          <img
+            src="https://i.imgur.com/vJt0znH.png"
+            alt="let's travel"
+            class="mx-auto"
+          />
+        </div>
+        <div class="col-lg-5">
+          <div class="flex flex-aic fs-1 border-b-3 mt-7 mb-5">
+            <i class="fas fa-plus-circle c-primary me-1"></i>
+            <h1 class="c-primary fw-b">新增旅遊套票</h1>
+          </div>
+          <form action="" class="ticketAdd">
+            <div class="flex flex-aic mb-3">
+              <label
+                for="ticketName"
+                class="me-5 whiteSpaceNowarp c-primary fw-m"
+                >套票名稱</label
+              >
+              <input
+                type="text"
+                id="ticketName"
+                placeholder="請填寫套票名稱"
+                class="
+                  w-100
+                  c-bg-gray-100 c-gray-300
+                  border-0 border-b-1
+                  py-2
+                  px-3
+                "
+              />
+            </div>
+            <div class="flex flex-aic mb-3">
+              <label
+                for="ticketImg"
+                class="me-5 whiteSpaceNowarp c-primary fw-m"
+                >圖片網址</label
+              >
+              <input
+                type="text"
+                id="ticketImg"
+                placeholder="請填寫圖片網址"
+                class="
+                  w-100
+                  c-bg-gray-100 c-gray-300
+                  border-0 border-b-1
+                  py-2
+                  px-3
+                "
+              />
+            </div>
+            <div class="flex flex-aic mb-3">
+              <label
+                for="ticketPlace"
+                class="me-5 whiteSpaceNowarp c-primary fw-m"
+                >景點地區</label
+              >
+              <select
+                name=""
+                id="ticketPlace"
+                class="
+                  w-100
+                  c-bg-gray-100 c-gray-300
+                  border-0 border-b-1
+                  py-2
+                  px-3
+                "
+              >
+                <option value="" disabled selected hidden>
+                  請選擇景點地區
+                </option>
+                <option value="台北">台北</option>
+                <option value="台中">台中</option>
+                <option value="高雄">高雄</option>
+              </select>
+            </div>
+            <div class="flex flex-aic mb-3">
+              <label
+                for="ticketMoney"
+                class="me-5 whiteSpaceNowarp c-primary fw-m"
+                >套票金額</label
+              >
+              <input
+                type="number"
+                id="ticketMoney"
+                placeholder="請填寫套票金額"
+                min="1"
+                class="
+                  w-100
+                  c-bg-gray-100 c-gray-300
+                  border-0 border-b-1
+                  py-2
+                  px-3
+                "
+              />
+            </div>
+            <div class="flex flex-aic mb-3">
+              <label
+                for="ticketGroup"
+                class="me-5 whiteSpaceNowarp c-primary fw-m"
+                >套票組數</label
+              >
+              <input
+                type="number"
+                id="ticketGroup"
+                placeholder="請填寫套票組數"
+                min="1"
+                class="
+                  w-100
+                  c-bg-gray-100 c-gray-300
+                  border-0 border-b-1
+                  py-2
+                  px-3
+                "
+              />
+            </div>
+            <div class="flex flex-aic mb-3">
+              <label
+                for="ticketStar"
+                class="me-5 whiteSpaceNowarp c-primary fw-m"
+                >套票星級</label
+              >
+              <input
+                type="number"
+                id="ticketStar"
+                placeholder="請填寫套票星級"
+                min="1"
+                max="10"
+                class="
+                  w-100
+                  c-bg-gray-100 c-gray-300
+                  border-0 border-b-1
+                  py-2
+                  px-3
+                "
+              />
+            </div>
+            <div class="flex mb-4">
+              <label
+                for="ticketTextArea"
+                class="me-5 whiteSpaceNowarp c-primary fw-m"
+                >套票描述</label
+              >
+              <textarea
+                name=""
+                id="ticketTextArea"
+                cols="100"
+                class="
+                  w-100
+                  c-bg-gray-100 c-gray-300
+                  border-0 border-b-1
+                  h-1
+                  py-2
+                  px-3
+                "
+                placeholder="請填寫套票描述(限100字)"
+              ></textarea>
+            </div>
+            <div class="flex flex-jce">
+              <input type="button" value="新增套票" class="btn mb-7" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="c-bg-gray-100 pt-7 pb-9">
+      <div class="container-lg mb-7">
+        <div class="row flex-ais">
+          <div class="col-lg-6 flex flex-aic flex-wrap">
+            <select
+              name=""
+              class="
+                search-place
+                flex-1
+                c-gray-300 c-border-gary-200
+                py-2
+                px-3
+                mt-2
+              "
+            >
+              <option value="" disabled selected hidden>地圖搜尋</option>
+              <option value="全部地區">全部地區</option>
+              <option value="台北">台北</option>
+              <option value="台中">台中</option>
+              <option value="高雄">高雄</option>
+            </select>
+            <p class="search-num ms-5 mt-2">本次搜尋共 0 筆資料</p>
+          </div>
+          <div class="dount col-1g-6"></div>
+        </div>
+      </div>
+      <div class="container-xl">
+        <ul class="card-group row">
+          <!-- <li class="card col-lg-4">
+              <div class="card-img">
+                <a href="#">
+                  <img src="https://i.imgur.com/QXa1fMZ.png" alt="旅遊景點" />
+                </a>
+                <p class="card-place">台北</p>
+                <p class="card-star">8.6</p>
+              </div>
+              <div class="card-content">
+                <a href="#"> <h3 class="card-title">綠島自由行套裝行程</h3></a>
+                <p class="card-text">
+                  嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                </p>
+                <div class="card-info">
+                  <p class="card-Num">
+                    <span><i class="fas fa-exclamation-circle"></i></span>
+                    剩下最後 8 組
+                  </p>
+                  <p class="card-price">
+                    TWD
+                    <span class="card-bprice">$1,280</span>
+                  </p>
+                </div>
+              </div>
+            </li> -->
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+  <script src="all.js"></script>
+</html>
